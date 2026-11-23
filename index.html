@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-page="home">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -53,7 +53,7 @@
 <!-- ============ CONTROLES: TEMA + IDIOMA ============ -->
 <div class="controls reveal r0">
   <button class="ctrl glass" id="themeToggle" type="button" aria-label="Mudar o tema">
-    <span class="ctrl__sq" aria-hidden="true"></span>
+    <span class="ctrl__icon" aria-hidden="true"></span>
     <span data-i18n="theme">Tema</span>
   </button>
 
@@ -66,27 +66,21 @@
 
 <main class="page">
 
-  <!-- ============ SELO ============ -->
-  <header class="badge-wrap reveal r1">
-    <a class="badge" href="./" aria-label="GR Brands, início" data-i18n-aria="homeAria">
-      <svg viewBox="0 0 200 200" width="200" height="200" aria-hidden="true">
+  <!-- ============ PASTILHA ============
+       A mesma placa de vidro em que o símbolo pousa no fim da abertura. -->
+  <header class="tile-wrap reveal r1">
+    <a class="tile glass" href="./" aria-label="GR Brands, início" data-i18n-aria="homeAria">
+      <svg viewBox="22.5 22 84 84" aria-hidden="true">
         <defs>
-          <path id="badge-ring" d="M100,100 m-80,0 a80,80 0 1,1 160,0 a80,80 0 1,1 -160,0" />
-          <clipPath id="bd-t"><rect x="-60" y="-60" width="220" height="107"/></clipPath>
-          <clipPath id="bd-b"><rect x="-60" y="53" width="220" height="160"/></clipPath>
+          <clipPath id="tl-t"><rect x="-60" y="-60" width="220" height="107"/></clipPath>
+          <clipPath id="tl-b"><rect x="-60" y="53" width="220" height="160"/></clipPath>
         </defs>
-        <text class="badge__ring">
-          <textPath href="#badge-ring" textLength="498" lengthAdjust="spacing">GR BRANDS · SÃO JOSÉ DO RIO PRETO · CAMPINAS ·</textPath>
-        </text>
-        <circle cx="100" cy="100" r="62" fill="none" stroke="currentColor" stroke-width="1.4" />
-        <svg x="58" y="58" width="84" height="84" viewBox="22.5 22 84 84">
-          <g transform="translate(25.30,24.00)"><g transform="scale(1.00125) translate(-16.0,-8.2)">
-            <g fill="currentColor" transform="rotate(-22 50 50)">
-              <g clip-path="url(#bd-t)"><circle cx="50" cy="50" r="38" transform="translate(10,0)"/></g>
-              <g clip-path="url(#bd-b)"><circle cx="50" cy="50" r="38"/></g>
-            </g>
-          </g></g>
-        </svg>
+        <g transform="translate(25.30,24.00)"><g transform="scale(1.00125) translate(-16.0,-8.2)">
+          <g fill="currentColor" transform="rotate(-22 50 50)">
+            <g clip-path="url(#tl-t)"><circle cx="50" cy="50" r="38" transform="translate(10,0)"/></g>
+            <g clip-path="url(#tl-b)"><circle cx="50" cy="50" r="38"/></g>
+          </g>
+        </g></g>
       </svg>
     </a>
   </header>
@@ -130,37 +124,46 @@
   </section>
 
   <!-- ============ NAVEGAÇÃO ============ -->
-  <footer class="foot reveal r4">
+  <div class="foot reveal r4">
     <nav class="foot__nav glass" aria-label="Links" data-i18n-aria="navAria">
+      <a class="mono-link" href="blog/" data-i18n="writing">Escritos</a>
       <a class="mono-link" href="https://grbrands.com.br/#sobre" target="_blank" rel="noopener noreferrer" data-i18n="values">Valores</a>
       <a class="mono-link" href="mailto:contato@grbrands.com.br?subject=Vagas" data-i18n="jobs">Vagas</a>
       <a class="mono-link" href="mailto:contato@grbrands.com.br?subject=Newsletter" data-i18n="newsletter">Newsletter</a>
       <a class="mono-link" href="https://www.instagram.com/grbrands.studio/" target="_blank" rel="noopener noreferrer">@grbrands.studio</a>
     </nav>
-  </footer>
+  </div>
 
 </main>
 
-<!-- ============ MARCAS DE RODAPÉ ============ -->
-<div class="marks reveal r5" aria-hidden="true">
-  <svg class="mark mark--sym" viewBox="22.5 22 84 84" width="24" height="24">
-    <defs>
-      <clipPath id="mk-t"><rect x="-60" y="-60" width="220" height="107"/></clipPath>
-      <clipPath id="mk-b"><rect x="-60" y="53" width="220" height="160"/></clipPath>
-    </defs>
-    <g transform="translate(25.30,24.00)"><g transform="scale(1.00125) translate(-16.0,-8.2)">
-      <g fill="currentColor" transform="rotate(-22 50 50)">
-        <g clip-path="url(#mk-t)"><circle cx="50" cy="50" r="38" transform="translate(10,0)"/></g>
-        <g clip-path="url(#mk-b)"><circle cx="50" cy="50" r="38"/></g>
-      </g>
-    </g></g>
-  </svg>
-  <span class="mark mark--mono">G<i>R</i></span>
-  <span class="mark mark--ring"><span>GR</span></span>
-  <span class="mark mark--stack">GR Brands<br />Rio Preto<br />Campinas</span>
-  <span class="mark mark--code">[GRB]</span>
-</div>
-<small class="sr-only">© 2026 GR Brands</small>
+<!-- ============ CÓLOFON ============
+     A ficha técnica no pé da página. A régua é cortada pelo símbolo e a
+     metade da direita sobe, como a metade de cima do círculo da marca. -->
+<footer class="colophon reveal r5">
+  <div class="cut" aria-hidden="true">
+    <span class="cut__a"></span>
+    <svg viewBox="22.5 22 84 84">
+      <defs>
+        <clipPath id="cl-t"><rect x="-60" y="-60" width="220" height="107"/></clipPath>
+        <clipPath id="cl-b"><rect x="-60" y="53" width="220" height="160"/></clipPath>
+      </defs>
+      <g transform="translate(25.30,24.00)"><g transform="scale(1.00125) translate(-16.0,-8.2)">
+        <g fill="currentColor" transform="rotate(-22 50 50)">
+          <g clip-path="url(#cl-t)"><circle cx="50" cy="50" r="38" transform="translate(10,0)"/></g>
+          <g clip-path="url(#cl-b)"><circle cx="50" cy="50" r="38"/></g>
+        </g>
+      </g></g>
+    </svg>
+    <span class="cut__b"></span>
+  </div>
+  <dl class="colophon__grid">
+    <div class="colophon__item colophon__brand"><dt data-i18n="colStudioK">Estúdio</dt><dd data-i18n="colStudio">GR Brands, design e código</dd></div>
+    <div class="colophon__item"><dt data-i18n="colBaseK">Base</dt><dd>São José do Rio Preto · Campinas</dd></div>
+    <div class="colophon__item"><dt data-i18n="colTypeK">Composição</dt><dd data-i18n="colType">Inter e Times New Roman</dd></div>
+    <div class="colophon__item colophon__mark"><dt data-i18n="colMarkK">Símbolo</dt><dd data-i18n="colMark">Um círculo cortado ao meio, girado −22°</dd></div>
+    <div class="colophon__item colophon__year"><dt data-i18n="colYearK">Ano</dt><dd>© 2026</dd></div>
+  </dl>
+</footer>
 
 <script src="app.js" defer></script>
 </body>

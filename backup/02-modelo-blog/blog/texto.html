@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-page="post">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Escritos — GR Brands</title>
+  <meta name="description" content="Notas sobre design, escrita e ofício." />
+  <meta name="theme-color" content="#EEEEE7" />
+  <link rel="icon" type="image/svg+xml" href="../img/favicon.svg" />
+  <link rel="preload" href="../fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="../style.css?v=20261123-4" />
+  <script>(function(){try{
+    var h=document.documentElement,s=null,l=null;
+    try{s=localStorage.getItem('grb-theme');l=localStorage.getItem('grb-lang');}catch(e){}
+    var t=s||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+    h.setAttribute('data-theme',t);
+    if(!l)l=/^pt/i.test(navigator.language||'pt')?'pt':'en';
+    h.setAttribute('data-lang',l);h.lang=l==='pt'?'pt-BR':'en';
+    h.className+=' js';
+  }catch(e){}})();</script>
+</head>
+<body>
+
+<a class="skip" href="#conteudo" data-i18n="skip">Pular para o texto</a>
+<div class="ambient" aria-hidden="true"></div>
+
+<div class="shell shell--read">
+
+  <!-- ============ BARRA ============ -->
+  <header class="topbar">
+    <a class="brand" href=".././" aria-label="GR Brands, início" data-i18n-aria="homeAria">
+      <svg viewBox="22.5 22 84 84" aria-hidden="true">
+        <defs>
+          <clipPath id="br-t"><rect x="-60" y="-60" width="220" height="107"/></clipPath>
+          <clipPath id="br-b"><rect x="-60" y="53" width="220" height="160"/></clipPath>
+        </defs>
+        <g transform="translate(25.30,24.00)"><g transform="scale(1.00125) translate(-16.0,-8.2)">
+          <g fill="currentColor" transform="rotate(-22 50 50)">
+            <g clip-path="url(#br-t)"><circle cx="50" cy="50" r="38" transform="translate(10,0)"/></g>
+            <g clip-path="url(#br-b)"><circle cx="50" cy="50" r="38"/></g>
+          </g>
+        </g></g>
+      </svg>
+      <span class="brand__label mono">GR Brands</span>
+    </a>
+    <div class="topbar__tools">
+      <button class="ctrl glass" id="themeToggle" type="button" aria-label="Mudar o tema">
+        <span class="ctrl__icon" aria-hidden="true"></span>
+        <span data-i18n="theme">Tema</span>
+      </button>
+      <div class="seg glass" role="group" aria-label="Idioma" data-i18n-aria="langGroup">
+        <span class="seg__thumb" aria-hidden="true"></span>
+        <button class="seg__btn" type="button" data-lang="pt" lang="pt-BR" aria-pressed="true">PT</button>
+        <button class="seg__btn" type="button" data-lang="en" lang="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ TEXTO ============ -->
+  <main class="shell__main" id="conteudo">
+    <article class="post" id="post" hidden>
+      <header class="post__head panel glass">
+        <p class="eyebrow"><time id="postDate"></time> · <span id="postRead"></span></p>
+        <h1 class="post__title" id="postTitle"></h1>
+        <p class="post__dek" id="postDek"></p>
+      </header>
+
+      <div class="post__body panel glass">
+        <div class="prose" id="prose"></div>
+        <div class="ornament" aria-hidden="true"></div>
+      </div>
+
+      <nav class="post__end" aria-label="Escritos" data-i18n-aria="writing">
+        <div class="post__pager" id="pager"></div>
+        <a class="button-link glass post__back" href="./">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m11 6-6 6 6 6"/></svg>
+          <span data-i18n="allPosts">Todos os escritos</span>
+        </a>
+      </nav>
+    </article>
+
+    <p class="state panel glass" id="state" role="status">Carregando…</p>
+    <noscript><p class="state panel glass">Os Escritos precisam de JavaScript ligado para abrir.</p></noscript>
+  </main>
+
+  <!-- ============ CÓLOFON ============
+       A ficha técnica no pé da página. A régua do fim é cortada pelo
+       símbolo e a metade da direita sobe, como a metade de cima do círculo
+       da marca. -->
+  <footer class="colophon panel glass">
+    <div class="colophon__top">
+      <div class="colophon__brand">
+        <svg viewBox="22.5 22 84 84" aria-hidden="true">
+        <defs>
+          <clipPath id="cb-t"><rect x="-60" y="-60" width="220" height="107"/></clipPath>
+          <clipPath id="cb-b"><rect x="-60" y="53" width="220" height="160"/></clipPath>
+        </defs>
+        <g transform="translate(25.30,24.00)"><g transform="scale(1.00125) translate(-16.0,-8.2)">
+          <g fill="currentColor" transform="rotate(-22 50 50)">
+            <g clip-path="url(#cb-t)"><circle cx="50" cy="50" r="38" transform="translate(10,0)"/></g>
+            <g clip-path="url(#cb-b)"><circle cx="50" cy="50" r="38"/></g>
+          </g>
+        </g></g>
+      </svg>
+        <p class="colophon__name">GR Brands.</p>
+        <p class="colophon__tag" data-i18n="colTag">Estúdio de design e código.</p>
+      </div>
+      <dl class="colophon__specs">
+        <div class="colophon__row"><dt data-i18n="colBaseK">Base</dt><dd>São José do Rio Preto · Campinas</dd></div>
+        <div class="colophon__row"><dt data-i18n="colTypeK">Composição</dt><dd data-i18n="colType">Inter e Times New Roman</dd></div>
+        <div class="colophon__row"><dt data-i18n="colMarkK">Símbolo</dt><dd data-i18n="colMark">Um círculo cortado ao meio, girado −22°</dd></div>
+        <div class="colophon__row"><dt data-i18n="colContactK">Contato</dt><dd><a href="mailto:contato@grbrands.com.br">contato@grbrands.com.br</a></dd></div>
+      </dl>
+    </div>
+    <div class="cut" aria-hidden="true">
+      <span class="cut__a"></span>
+      <svg viewBox="22.5 22 84 84" aria-hidden="true">
+        <defs>
+          <clipPath id="cc-t"><rect x="-60" y="-60" width="220" height="107"/></clipPath>
+          <clipPath id="cc-b"><rect x="-60" y="53" width="220" height="160"/></clipPath>
+        </defs>
+        <g transform="translate(25.30,24.00)"><g transform="scale(1.00125) translate(-16.0,-8.2)">
+          <g fill="currentColor" transform="rotate(-22 50 50)">
+            <g clip-path="url(#cc-t)"><circle cx="50" cy="50" r="38" transform="translate(10,0)"/></g>
+            <g clip-path="url(#cc-b)"><circle cx="50" cy="50" r="38"/></g>
+          </g>
+        </g></g>
+      </svg>
+      <span class="cut__b"></span>
+    </div>
+    <div class="colophon__bottom">
+      <p class="colophon__copy">© 2026 GR Brands</p>
+      <ul class="colophon__links">
+        <li><a href="../blog/" data-i18n="writing">Escritos</a></li>
+        <li><a href="https://grbrands.com.br/apps/" target="_blank" rel="noopener noreferrer">GR Apps</a></li>
+        <li><a href="https://www.instagram.com/grbrands.studio/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        <li><a href="https://grbrands.com.br/" target="_blank" rel="noopener noreferrer">grbrands.com.br</a></li>
+      </ul>
+    </div>
+  </footer>
+</div>
+
+<script src="../vendor/marked-12.0.2.min.js" defer></script>
+<script src="../app.js?v=20261123-4" defer></script>
+<script src="blog.js?v=20261123-4" defer></script>
+</body>
+</html>

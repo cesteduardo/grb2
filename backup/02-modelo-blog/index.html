@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-page="home">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>GR Brands — Sites, identidades visuais e apps</title>
+  <meta name="description" content="Estamos construindo jeitos melhores de usar a internet com o Estúdio e os Apps da GR Brands." />
+  <meta name="theme-color" content="#EEEEE7" />
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg" />
+  <link rel="preload" href="fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="style.css?v=20261123-4" />
+
+  <!-- Antes do primeiro quadro: tema, idioma e a classe .js. O tema precisa
+       estar no <html> quando o glass-intro.js ler data-theme. -->
+  <script>(function(){try{
+    var h=document.documentElement,s=null,l=null;
+    try{s=localStorage.getItem('grb-theme');l=localStorage.getItem('grb-lang');}catch(e){}
+    var t=s||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+    h.setAttribute('data-theme',t);
+    if(!l)l=/^pt/i.test(navigator.language||'pt')?'pt':'en';
+    h.setAttribute('data-lang',l);h.lang=l==='pt'?'pt-BR':'en';
+    h.className+=' js';
+  }catch(e){}})();</script>
+
+  <!-- ABERTURA DE VIDRO (glass-intro.js), a mesma de grbrands.com.br.
+       O véu cobre a página desde o primeiro quadro. -->
+  <style>
+  .glass-intro{display:none;position:fixed;inset:0;z-index:2147483000;background:#EEEEE7}
+  html[data-theme=dark] .glass-intro{background:#1B1B1B}
+  html.is-intro{overflow:hidden}
+  html.is-intro .glass-intro,.glass-intro.is-saindo,.glass-intro.is-pulando{display:block}
+  .glass-intro canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+  .glass-intro.is-saindo{animation:gi-sai .62s cubic-bezier(.4,0,.2,1) forwards;pointer-events:none}
+  .glass-intro.is-pulando{animation:gi-sai .32s ease forwards;pointer-events:none}
+  @keyframes gi-sai{to{opacity:0;visibility:hidden}}
+  </style>
+  <script>(function(){/* em todo carregamento, exceto com movimento reduzido
+    (?intro força). Se o glass-intro.js não chegar, a página volta em 4 s. */
+  try{var force=/[?&]intro(=|&|$)/.test(location.search);
+  if(!force&&matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+  var h=document.documentElement;h.className+=" is-intro"+(force?" is-intro-forced":"");
+  window.__grbIntro=setTimeout(function(){h.classList.remove("is-intro");},4000);}catch(e){}})();</script>
+</head>
+<body>
+
+<div class="glass-intro" id="glassIntro" aria-hidden="true"></div>
+<script src="glass-intro.js?v=20261123-4" async></script>
+
+<!-- Campo de cor quase imperceptível: é o que o vidro refrata. Sem ele, o
+     Liquid Glass sobre um fundo liso vira só uma borda. -->
+<div class="ambient" aria-hidden="true"></div>
+
+<div class="shell">
+
+  <!-- ============ BARRA ============ -->
+  <header class="topbar topbar--end reveal r0">
+    <div class="topbar__tools">
+      <button class="ctrl glass" id="themeToggle" type="button" aria-label="Mudar o tema">
+        <span class="ctrl__icon" aria-hidden="true"></span>
+        <span data-i18n="theme">Tema</span>
+      </button>
+      <div class="seg glass" role="group" aria-label="Idioma" data-i18n-aria="langGroup">
+        <span class="seg__thumb" aria-hidden="true"></span>
+        <button class="seg__btn" type="button" data-lang="pt" lang="pt-BR" aria-pressed="true">PT</button>
+        <button class="seg__btn" type="button" data-lang="en" lang="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ PRINCIPAL ============ -->
+    <section class="hero panel glass reveal r1">
+      <a class="hero__mark" href="./" aria-label="GR Brands, início" data-i18n-aria="homeAria">
+        <svg viewBox="22.5 22 84 84" aria-hidden="true">
+        <defs>
+          <clipPath id="hm-t"><rect x="-60" y="-60" width="220" height="107"/></clipPath>
+          <clipPath id="hm-b"><rect x="-60" y="53" width="220" height="160"/></clipPath>
+        </defs>
+        <g transform="translate(25.30,24.00)"><g transform="scale(1.00125) translate(-16.0,-8.2)">
+          <g fill="currentColor" transform="rotate(-22 50 50)">
+            <g clip-path="url(#hm-t)"><circle cx="50" cy="50" r="38" transform="translate(10,0)"/></g>
+            <g clip-path="url(#hm-b)"><circle cx="50" cy="50" r="38"/></g>
+          </g>
+        </g></g>
+      </svg>
+      </a>
+
+      <h1 class="heading">
+        <span data-i18n="h1a">Estamos construindo jeitos melhores de usar a internet com o </span><a class="heading-link" href="https://grbrands.com.br/" target="_blank" rel="noopener noreferrer" data-i18n="h1studio">Estúdio</a><span data-i18n="h1b"> e os </span><a class="heading-link" href="https://grbrands.com.br/apps/" target="_blank" rel="noopener noreferrer" data-i18n="h1apps">Apps</a><span>.</span>
+      </h1>
+
+      <ul class="apps">
+        <li>
+          <a class="button-link glass" href="https://grbrands.com.br/" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="22.5 22 84 84" width="16" height="16" aria-hidden="true">
+        <defs>
+          <clipPath id="bt-t"><rect x="-60" y="-60" width="220" height="107"/></clipPath>
+          <clipPath id="bt-b"><rect x="-60" y="53" width="220" height="160"/></clipPath>
+        </defs>
+        <g transform="translate(25.30,24.00)"><g transform="scale(1.00125) translate(-16.0,-8.2)">
+          <g fill="currentColor" transform="rotate(-22 50 50)">
+            <g clip-path="url(#bt-t)"><circle cx="50" cy="50" r="38" transform="translate(10,0)"/></g>
+            <g clip-path="url(#bt-b)"><circle cx="50" cy="50" r="38"/></g>
+          </g>
+        </g></g>
+      </svg>
+            <span data-i18n="btnStudio">GR Estúdio</span>
+          </a>
+        </li>
+        <li>
+          <a class="button-link glass" href="https://grbrands.com.br/apps/" target="_blank" rel="noopener noreferrer">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.1" aria-hidden="true">
+              <rect x="1.5" y="1.5" width="5.2" height="5.2" rx="1.6"/>
+              <rect x="9.3" y="1.5" width="5.2" height="5.2" rx="1.6"/>
+              <rect x="1.5" y="9.3" width="5.2" height="5.2" rx="1.6"/>
+              <circle cx="11.9" cy="11.9" r="2.6"/>
+            </svg>
+            <span data-i18n="btnApps">GR Apps</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- ============ NAVEGAÇÃO ============ -->
+  <nav class="navpanel panel glass reveal r3" aria-label="Links" data-i18n-aria="navAria">
+    <a class="mono-link" href="blog/" data-i18n="writing">Escritos</a>
+    <a class="mono-link" href="https://grbrands.com.br/#sobre" target="_blank" rel="noopener noreferrer" data-i18n="values">Valores</a>
+    <a class="mono-link" href="mailto:contato@grbrands.com.br?subject=Vagas" data-i18n="jobs">Vagas</a>
+    <a class="mono-link" href="mailto:contato@grbrands.com.br?subject=Newsletter" data-i18n="newsletter">Newsletter</a>
+    <a class="mono-link" href="https://www.instagram.com/grbrands.studio/" target="_blank" rel="noopener noreferrer">@grbrands.studio</a>
+  </nav>
+
+  <!-- ============ CÓLOFON ============
+       A ficha técnica no pé da página. A régua do fim é cortada pelo
+       símbolo e a metade da direita sobe, como a metade de cima do círculo
+       da marca. -->
+  <footer class="colophon panel glass reveal r4">
+    <div class="colophon__top">
+      <div class="colophon__brand">
+        <svg viewBox="22.5 22 84 84" aria-hidden="true">
+        <defs>
+          <clipPath id="cb-t"><rect x="-60" y="-60" width="220" height="107"/></clipPath>
+          <clipPath id="cb-b"><rect x="-60" y="53" width="220" height="160"/></clipPath>
+        </defs>
+        <g transform="translate(25.30,24.00)"><g transform="scale(1.00125) translate(-16.0,-8.2)">
+          <g fill="currentColor" transform="rotate(-22 50 50)">
+            <g clip-path="url(#cb-t)"><circle cx="50" cy="50" r="38" transform="translate(10,0)"/></g>
+            <g clip-path="url(#cb-b)"><circle cx="50" cy="50" r="38"/></g>
+          </g>
+        </g></g>
+      </svg>
+        <p class="colophon__name">GR Brands.</p>
+        <p class="colophon__tag" data-i18n="colTag">Estúdio de design e código.</p>
+      </div>
+      <dl class="colophon__specs">
+        <div class="colophon__row"><dt data-i18n="colBaseK">Base</dt><dd>São José do Rio Preto · Campinas</dd></div>
+        <div class="colophon__row"><dt data-i18n="colTypeK">Composição</dt><dd data-i18n="colType">Inter e Times New Roman</dd></div>
+        <div class="colophon__row"><dt data-i18n="colMarkK">Símbolo</dt><dd data-i18n="colMark">Um círculo cortado ao meio, girado −22°</dd></div>
+        <div class="colophon__row"><dt data-i18n="colContactK">Contato</dt><dd><a href="mailto:contato@grbrands.com.br">contato@grbrands.com.br</a></dd></div>
+      </dl>
+    </div>
+    <div class="cut" aria-hidden="true">
+      <span class="cut__a"></span>
+      <svg viewBox="22.5 22 84 84" aria-hidden="true">
+        <defs>
+          <clipPath id="cc-t"><rect x="-60" y="-60" width="220" height="107"/></clipPath>
+          <clipPath id="cc-b"><rect x="-60" y="53" width="220" height="160"/></clipPath>
+        </defs>
+        <g transform="translate(25.30,24.00)"><g transform="scale(1.00125) translate(-16.0,-8.2)">
+          <g fill="currentColor" transform="rotate(-22 50 50)">
+            <g clip-path="url(#cc-t)"><circle cx="50" cy="50" r="38" transform="translate(10,0)"/></g>
+            <g clip-path="url(#cc-b)"><circle cx="50" cy="50" r="38"/></g>
+          </g>
+        </g></g>
+      </svg>
+      <span class="cut__b"></span>
+    </div>
+    <div class="colophon__bottom">
+      <p class="colophon__copy">© 2026 GR Brands</p>
+      <ul class="colophon__links">
+        <li><a href="blog/" data-i18n="writing">Escritos</a></li>
+        <li><a href="https://grbrands.com.br/apps/" target="_blank" rel="noopener noreferrer">GR Apps</a></li>
+        <li><a href="https://www.instagram.com/grbrands.studio/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        <li><a href="https://grbrands.com.br/" target="_blank" rel="noopener noreferrer">grbrands.com.br</a></li>
+      </ul>
+    </div>
+  </footer>
+
+</div>
+
+<script src="app.js?v=20261123-4" defer></script>
+</body>
+</html>

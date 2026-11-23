@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#EEEEE7" />
   <link rel="icon" type="image/svg+xml" href="img/favicon.svg" />
   <link rel="preload" href="fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="style.css?v=20261123-4" />
+  <link rel="stylesheet" href="style.css?v=20261123-5" />
 
   <!-- Antes do primeiro quadro: tema, idioma e a classe .js. O tema precisa
        estar no <html> quando o glass-intro.js ler data-theme. -->
@@ -44,10 +44,9 @@
 <body>
 
 <div class="glass-intro" id="glassIntro" aria-hidden="true"></div>
-<script src="glass-intro.js?v=20261123-4" async></script>
+<script src="glass-intro.js?v=20261123-5" async></script>
 
-<!-- Campo de cor quase imperceptível: é o que o vidro refrata. Sem ele, o
-     Liquid Glass sobre um fundo liso vira só uma borda. -->
+<!-- Campo de cor quase imperceptível: é o que o vidro refrata. -->
 <div class="ambient" aria-hidden="true"></div>
 
 <div class="shell">
@@ -68,8 +67,10 @@
   </header>
 
   <main>
-    <!-- ============ PRINCIPAL ============ -->
-    <section class="hero panel glass reveal r1">
+
+    <!-- ============ 01 · TESE ============
+         O site abre com o que a GR Brands acredita, não com o que ela faz. -->
+    <section class="hero panel glass reveal r1" id="inicio">
       <a class="hero__mark" href="./" aria-label="GR Brands, início" data-i18n-aria="homeAria">
         <svg viewBox="22.5 22 84 84" aria-hidden="true">
         <defs>
@@ -85,51 +86,487 @@
       </svg>
       </a>
 
-      <h1 class="heading">
-        <span data-i18n="h1a">Estamos construindo jeitos melhores de usar a internet com o </span><a class="heading-link" href="https://grbrands.com.br/" target="_blank" rel="noopener noreferrer" data-i18n="h1studio">Estúdio</a><span data-i18n="h1b"> e os </span><a class="heading-link" href="https://grbrands.com.br/apps/" target="_blank" rel="noopener noreferrer" data-i18n="h1apps">Apps</a><span>.</span>
+      <h1 class="motto">
+        <span data-l="pt">Nada é enfeite<span class="dot">.</span></span>
+        <span data-l="en" lang="en">Nothing is ornament<span class="dot">.</span></span>
       </h1>
+
+      <p class="hero__sub">
+        <span data-l="pt">Sites e landing pages em que cada elemento trabalha: para ser entendido e para vender.</span>
+        <span data-l="en" lang="en">Websites and landing pages where every element does a job: to be understood, and to sell.</span>
+      </p>
 
       <ul class="apps">
         <li>
-          <a class="button-link glass" href="https://grbrands.com.br/" target="_blank" rel="noopener noreferrer">
-            <svg viewBox="22.5 22 84 84" width="16" height="16" aria-hidden="true">
-        <defs>
-          <clipPath id="bt-t"><rect x="-60" y="-60" width="220" height="107"/></clipPath>
-          <clipPath id="bt-b"><rect x="-60" y="53" width="220" height="160"/></clipPath>
-        </defs>
-        <g transform="translate(25.30,24.00)"><g transform="scale(1.00125) translate(-16.0,-8.2)">
-          <g fill="currentColor" transform="rotate(-22 50 50)">
-            <g clip-path="url(#bt-t)"><circle cx="50" cy="50" r="38" transform="translate(10,0)"/></g>
-            <g clip-path="url(#bt-b)"><circle cx="50" cy="50" r="38"/></g>
-          </g>
-        </g></g>
-      </svg>
-            <span data-i18n="btnStudio">GR Estúdio</span>
+          <a class="button-link glass" href="#trabalhos">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m6 13 6 6 6-6"/></svg>
+            <span data-l="pt">Ver o que tiramos</span><span data-l="en" lang="en">See what we took out</span>
           </a>
         </li>
         <li>
-          <a class="button-link glass" href="https://grbrands.com.br/apps/" target="_blank" rel="noopener noreferrer">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.1" aria-hidden="true">
-              <rect x="1.5" y="1.5" width="5.2" height="5.2" rx="1.6"/>
-              <rect x="9.3" y="1.5" width="5.2" height="5.2" rx="1.6"/>
-              <rect x="1.5" y="9.3" width="5.2" height="5.2" rx="1.6"/>
-              <circle cx="11.9" cy="11.9" r="2.6"/>
-            </svg>
-            <span data-i18n="btnApps">GR Apps</span>
+          <a class="button-link button-link--ink" href="#contato">
+            <span data-l="pt">Iniciar um projeto</span><span data-l="en" lang="en">Start a project</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
           </a>
         </li>
       </ul>
     </section>
-  </main>
 
-  <!-- ============ NAVEGAÇÃO ============ -->
-  <nav class="navpanel panel glass reveal r3" aria-label="Links" data-i18n-aria="navAria">
-    <a class="mono-link" href="blog/" data-i18n="writing">Escritos</a>
-    <a class="mono-link" href="https://grbrands.com.br/#sobre" target="_blank" rel="noopener noreferrer" data-i18n="values">Valores</a>
-    <a class="mono-link" href="mailto:contato@grbrands.com.br?subject=Vagas" data-i18n="jobs">Vagas</a>
-    <a class="mono-link" href="mailto:contato@grbrands.com.br?subject=Newsletter" data-i18n="newsletter">Newsletter</a>
-    <a class="mono-link" href="https://www.instagram.com/grbrands.studio/" target="_blank" rel="noopener noreferrer">@grbrands.studio</a>
-  </nav>
+    <!-- ============ NAVEGAÇÃO ============ -->
+    <nav class="navpanel panel glass reveal r3" aria-label="Seções" data-i18n-aria="sectionsAria">
+      <a class="mono-link" href="#manifesto">Manifesto</a>
+      <a class="mono-link" href="#trabalhos"><span data-l="pt">Trabalhos</span><span data-l="en" lang="en">Work</span></a>
+      <a class="mono-link" href="#servicos"><span data-l="pt">Serviços</span><span data-l="en" lang="en">Services</span></a>
+      <a class="mono-link" href="#processo"><span data-l="pt">Processo</span><span data-l="en" lang="en">Process</span></a>
+      <a class="mono-link" href="#sobre"><span data-l="pt">Sobre</span><span data-l="en" lang="en">About</span></a>
+      <a class="mono-link" href="#apps">Apps</a>
+      <a class="mono-link" href="blog/" data-i18n="writing">Escritos</a>
+    </nav>
+
+    <!-- ============ 02 · MANIFESTO ============
+         Bloco chapado, sem vidro: uma frase por linha e só o último ponto
+         em vermelho. -->
+    <section class="manifesto panel reveal-scroll" id="manifesto" aria-labelledby="manifesto-t">
+      <p class="eyebrow">Manifesto</p>
+
+      <div data-l="pt">
+        <h2 class="manifesto__open" id="manifesto-t">Aos que tiram.</h2>
+        <div class="manifesto__stanza">
+          <p>Ao alfaiate, que corta até o pano cair sozinho no ombro.</p>
+          <p>Ao barista, que pesa o pó antes de abrir a boca.</p>
+          <p>Ao tipógrafo, que mede o espaço entre duas letras como quem mede um silêncio.</p>
+          <p>Ao marceneiro, que lixa o lado da gaveta que ninguém vai abrir.</p>
+        </div>
+        <div class="manifesto__stanza">
+          <p>Eles sabem o que o mercado esqueceu.</p>
+          <p>Beleza não é o que se acrescenta.</p>
+          <p>É o que fica quando vai embora tudo o que não trabalha.</p>
+        </div>
+        <div class="manifesto__stanza">
+          <p>A gente faz sites assim.</p>
+          <p>Sem template, porque a sua empresa não nasceu de um.</p>
+          <p>Sem efeito que distrai, porque cada segundo de atenção custa caro.</p>
+          <p>Sem frase vazia, porque o seu cliente não tem tempo para ela.</p>
+        </div>
+        <div class="manifesto__stanza manifesto__stanza--tight">
+          <p>Cada cor tem motivo.</p>
+          <p>Cada palavra tem trabalho.</p>
+          <p>Cada clique tem destino.</p>
+        </div>
+        <div class="manifesto__stanza">
+          <p class="manifesto__cut">O que não serve, sai.</p>
+        </div>
+        <p class="manifesto__sign">Nada é enfeite. GR Brands<span class="dot">.</span></p>
+      </div>
+
+      <div data-l="en" lang="en">
+        <h2 class="manifesto__open">To those who take away.</h2>
+        <div class="manifesto__stanza">
+          <p>To the tailor, who cuts until the cloth falls onto the shoulder on its own.</p>
+          <p>To the barista, who weighs the grounds before saying a word.</p>
+          <p>To the typesetter, who measures the space between two letters the way one measures a silence.</p>
+          <p>To the cabinetmaker, who sands the side of the drawer no one will ever open.</p>
+        </div>
+        <div class="manifesto__stanza">
+          <p>They know what the market forgot.</p>
+          <p>Beauty is not what you add.</p>
+          <p>It is what remains once everything that doesn’t work is gone.</p>
+        </div>
+        <div class="manifesto__stanza">
+          <p>That is how we make websites.</p>
+          <p>No templates, because your company wasn’t born from one.</p>
+          <p>No effects that distract, because every second of attention is expensive.</p>
+          <p>No empty phrases, because your customer has no time for them.</p>
+        </div>
+        <div class="manifesto__stanza manifesto__stanza--tight">
+          <p>Every color has a reason.</p>
+          <p>Every word has a job.</p>
+          <p>Every click has a destination.</p>
+        </div>
+        <div class="manifesto__stanza">
+          <p class="manifesto__cut">What doesn’t serve, goes.</p>
+        </div>
+        <p class="manifesto__sign">Nothing is ornament. GR Brands<span class="dot">.</span></p>
+      </div>
+    </section>
+
+    <!-- ============ 03 · TRABALHOS ============
+         Três cases contados pelo raciocínio. Os campos marcados "a preencher"
+         esperam os dados reais de cada projeto: nada aqui é inventado. -->
+    <section class="section panel glass reveal-scroll" id="trabalhos" aria-labelledby="trabalhos-t">
+      <header class="section__head">
+        <p class="eyebrow"><span data-l="pt">Trabalhos</span><span data-l="en" lang="en">Work</span></p>
+        <h2 class="section__title" id="trabalhos-t"><span data-l="pt">O que tiramos</span><span data-l="en" lang="en">What we took out</span></h2>
+        <p class="section__intro">
+          <span data-l="pt">Três projetos contados pelo raciocínio: o problema, o que saiu da página, a decisão que mudou o resultado e o número que ela produziu.</span>
+          <span data-l="en" lang="en">Three projects told through their reasoning: the problem, what left the page, the decision that changed the outcome and the number it produced.</span>
+        </p>
+      </header>
+
+      <div class="cases">
+        <article class="case card">
+          <figure class="case__shot">
+            <img src="img/trabalhos/lfw-fone.webp" width="540" height="1171" loading="lazy" decoding="async" alt="" />
+          </figure>
+          <div class="case__body">
+            <p class="eyebrow">01 · <span data-l="pt">Alimentação &amp; Franquia</span><span data-l="en" lang="en">Food &amp; Franchise</span></p>
+            <h3 class="case__name">Light Food Way</h3>
+            <dl class="spec">
+            <div class="spec__row"><dt><span data-l="pt">Problema</span><span data-l="en" lang="en">Problem</span></dt><dd><span class="tbd"><span data-l="pt">A preencher</span><span data-l="en" lang="en">To be filled</span></span></dd></div>
+            <div class="spec__row"><dt><span data-l="pt">O que tiramos</span><span data-l="en" lang="en">What we took out</span></dt><dd><span class="tbd"><span data-l="pt">A preencher</span><span data-l="en" lang="en">To be filled</span></span></dd></div>
+            <div class="spec__row"><dt><span data-l="pt">Decisão-chave</span><span data-l="en" lang="en">Key decision</span></dt><dd><span class="tbd"><span data-l="pt">A preencher</span><span data-l="en" lang="en">To be filled</span></span></dd></div>
+            <div class="spec__row"><dt><span data-l="pt">Número</span><span data-l="en" lang="en">Number</span></dt><dd><span class="tbd"><span data-l="pt">A preencher</span><span data-l="en" lang="en">To be filled</span></span></dd></div>
+            </dl>
+          </div>
+        </article>
+        <article class="case card">
+          <figure class="case__shot">
+            <img src="img/trabalhos/muve-fone.webp" width="540" height="1171" loading="lazy" decoding="async" alt="" />
+          </figure>
+          <div class="case__body">
+            <p class="eyebrow">02 · <span data-l="pt">Clínicas &amp; Landing Page</span><span data-l="en" lang="en">Clinics &amp; Landing Page</span></p>
+            <h3 class="case__name">Muv.e</h3>
+            <dl class="spec">
+            <div class="spec__row"><dt><span data-l="pt">Problema</span><span data-l="en" lang="en">Problem</span></dt><dd><span class="tbd"><span data-l="pt">A preencher</span><span data-l="en" lang="en">To be filled</span></span></dd></div>
+            <div class="spec__row"><dt><span data-l="pt">O que tiramos</span><span data-l="en" lang="en">What we took out</span></dt><dd><span class="tbd"><span data-l="pt">A preencher</span><span data-l="en" lang="en">To be filled</span></span></dd></div>
+            <div class="spec__row"><dt><span data-l="pt">Decisão-chave</span><span data-l="en" lang="en">Key decision</span></dt><dd><span class="tbd"><span data-l="pt">A preencher</span><span data-l="en" lang="en">To be filled</span></span></dd></div>
+            <div class="spec__row"><dt><span data-l="pt">Número</span><span data-l="en" lang="en">Number</span></dt><dd><span class="tbd"><span data-l="pt">A preencher</span><span data-l="en" lang="en">To be filled</span></span></dd></div>
+            </dl>
+          </div>
+        </article>
+        <article class="case card">
+          <figure class="case__shot">
+            <img src="img/trabalhos/momento-fone.webp" width="540" height="1171" loading="lazy" decoding="async" alt="" />
+          </figure>
+          <div class="case__body">
+            <p class="eyebrow">03 · <span data-l="pt">Imobiliária &amp; Site</span><span data-l="en" lang="en">Real estate &amp; Website</span></p>
+            <h3 class="case__name">Momento Imóveis</h3>
+            <dl class="spec">
+            <div class="spec__row"><dt><span data-l="pt">Problema</span><span data-l="en" lang="en">Problem</span></dt><dd><span class="tbd"><span data-l="pt">A preencher</span><span data-l="en" lang="en">To be filled</span></span></dd></div>
+            <div class="spec__row"><dt><span data-l="pt">O que tiramos</span><span data-l="en" lang="en">What we took out</span></dt><dd><span class="tbd"><span data-l="pt">A preencher</span><span data-l="en" lang="en">To be filled</span></span></dd></div>
+            <div class="spec__row"><dt><span data-l="pt">Decisão-chave</span><span data-l="en" lang="en">Key decision</span></dt><dd><span class="tbd"><span data-l="pt">A preencher</span><span data-l="en" lang="en">To be filled</span></span></dd></div>
+            <div class="spec__row"><dt><span data-l="pt">Número</span><span data-l="en" lang="en">Number</span></dt><dd><span class="tbd"><span data-l="pt">A preencher</span><span data-l="en" lang="en">To be filled</span></span></dd></div>
+            </dl>
+          </div>
+        </article>
+      </div>
+
+      <h3 class="subhead"><span data-l="pt">Outros trabalhos</span><span data-l="en" lang="en">More work</span></h3>
+      <ul class="gallery">
+        <li class="shot">
+          <img src="img/trabalhos/serra-fone.webp" width="540" height="1171" loading="lazy" decoding="async" alt="" />
+          <p class="shot__name">Serra Alta</p>
+          <p class="shot__cat eyebrow"><span data-l="pt">Cafeteria &amp; E-commerce</span><span data-l="en" lang="en">Coffee &amp; E-commerce</span></p>
+        </li>
+        <li class="shot">
+          <img src="img/trabalhos/bruma-fone.webp" width="540" height="1171" loading="lazy" decoding="async" alt="" />
+          <p class="shot__name">Bruma</p>
+          <p class="shot__cat eyebrow"><span data-l="pt">Fintech &amp; Automação</span><span data-l="en" lang="en">Fintech &amp; Automation</span></p>
+        </li>
+        <li class="shot">
+          <img src="img/trabalhos/vestigio-fone.webp" width="540" height="1171" loading="lazy" decoding="async" alt="" />
+          <p class="shot__name">Vestígio</p>
+          <p class="shot__cat eyebrow"><span data-l="pt">Moda &amp; Loja Virtual</span><span data-l="en" lang="en">Fashion &amp; Online store</span></p>
+        </li>
+        <li class="shot">
+          <img src="img/trabalhos/vulto-fone.webp" width="540" height="1171" loading="lazy" decoding="async" alt="" />
+          <p class="shot__name">Vulto</p>
+          <p class="shot__cat eyebrow"><span data-l="pt">Banda &amp; Site</span><span data-l="en" lang="en">Band &amp; Website</span></p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ============ 04 · SERVIÇOS ============
+         Cada serviço abre com o enfeite que ele elimina. -->
+    <section class="section panel glass reveal-scroll" id="servicos" aria-labelledby="servicos-t">
+      <header class="section__head">
+        <p class="eyebrow"><span data-l="pt">Serviços</span><span data-l="en" lang="en">Services</span></p>
+        <h2 class="section__title" id="servicos-t"><span data-l="pt">Cada serviço começa pelo enfeite que ele elimina</span><span data-l="en" lang="en">Every service starts with the ornament it removes</span></h2>
+      </header>
+      <div class="grid grid--2">
+        <article class="service card">
+          <p class="eyebrow">01 · <span data-l="pt">Landing Pages</span><span data-l="en" lang="en">Landing Pages</span></p>
+          <p class="service__enemy"><span data-l="pt">Página bonita que não vende é enfeite caro.</span><span data-l="en" lang="en">A pretty page that doesn’t sell is expensive ornament.</span></p>
+          <p class="service__desc"><span data-l="pt">Páginas focadas em converter visitantes em clientes. Cada elemento guia o visitante até a ação, do texto ao pixel.</span><span data-l="en" lang="en">Pages built to turn visitors into customers. Every element leads the visitor to the action, from copy to pixel.</span></p>
+          <ul class="ticks">
+              <li><span data-l="pt">Estrutura e texto pensados para converter</span><span data-l="en" lang="en">Structure and copy built to convert</span></li>
+              <li><span data-l="pt">Formulário ligado ao seu WhatsApp ou e-mail</span><span data-l="en" lang="en">Form connected to your WhatsApp or e-mail</span></li>
+              <li><span data-l="pt">Carregamento rápido, testado no celular</span><span data-l="en" lang="en">Fast loading, tested on mobile</span></li>
+              <li><span data-l="pt">SEO básico e medição de resultados</span><span data-l="en" lang="en">Basic SEO and results tracking</span></li>
+          </ul>
+          <a class="service__cta mono-link" href="#contato" data-servico="landing"><span data-l="pt">Começar por aqui</span><span data-l="en" lang="en">Start here</span></a>
+        </article>
+        <article class="service card">
+          <p class="eyebrow">02 · <span data-l="pt">Sites Institucionais</span><span data-l="en" lang="en">Company Websites</span></p>
+          <p class="service__enemy"><span data-l="pt">Sua empresa não nasceu de um template. O site também não.</span><span data-l="en" lang="en">Your company wasn’t born from a template. Neither is its website.</span></p>
+          <p class="service__desc"><span data-l="pt">Presença digital completa, que transmite credibilidade, conta a história da marca e abre oportunidades reais de negócio.</span><span data-l="en" lang="en">A complete online presence that earns trust, tells the brand’s story and opens real business opportunities.</span></p>
+          <ul class="ticks">
+              <li><span data-l="pt">Páginas de marca, serviços e contato</span><span data-l="en" lang="en">Brand, services and contact pages</span></li>
+              <li><span data-l="pt">Blog ou área de conteúdo, quando faz sentido</span><span data-l="en" lang="en">Blog or content area, when it makes sense</span></li>
+              <li><span data-l="pt">Textos e imagens organizados para busca</span><span data-l="en" lang="en">Copy and images organized for search</span></li>
+              <li><span data-l="pt">Painel para a sua equipe atualizar sozinha</span><span data-l="en" lang="en">A dashboard your team can update on its own</span></li>
+          </ul>
+          <a class="service__cta mono-link" href="#contato" data-servico="institucional"><span data-l="pt">Começar por aqui</span><span data-l="en" lang="en">Start here</span></a>
+        </article>
+        <article class="service card">
+          <p class="eyebrow">03 · <span data-l="pt">Lojas Virtuais</span><span data-l="en" lang="en">Online Stores</span></p>
+          <p class="service__enemy"><span data-l="pt">Loja virtual não é despesa. É o balcão que não fecha.</span><span data-l="en" lang="en">An online store isn’t an expense. It’s the counter that never closes.</span></p>
+          <p class="service__desc"><span data-l="pt">Lojas prontas para vender, com checkout otimizado e integração aos principais meios de pagamento do Brasil.</span><span data-l="en" lang="en">Stores ready to sell, with an optimized checkout and Brazil’s main payment methods built in.</span></p>
+          <ul class="ticks">
+              <li><span data-l="pt">Catálogo de produtos com variações</span><span data-l="en" lang="en">Product catalog with variants</span></li>
+              <li><span data-l="pt">Checkout e meios de pagamento do Brasil</span><span data-l="en" lang="en">Checkout and Brazilian payment methods</span></li>
+              <li><span data-l="pt">Cálculo de frete e status do pedido</span><span data-l="en" lang="en">Shipping rates and order status</span></li>
+              <li><span data-l="pt">Painel de vendas e de estoque</span><span data-l="en" lang="en">Sales and inventory dashboard</span></li>
+          </ul>
+          <a class="service__cta mono-link" href="#contato" data-servico="loja"><span data-l="pt">Começar por aqui</span><span data-l="en" lang="en">Start here</span></a>
+        </article>
+        <article class="service card">
+          <p class="eyebrow">04 · <span data-l="pt">Páginas de Links</span><span data-l="en" lang="en">Link Pages</span></p>
+          <p class="service__enemy"><span data-l="pt">Sua bio não é lugar para a marca de outro.</span><span data-l="en" lang="en">Your bio is no place for someone else’s brand.</span></p>
+          <p class="service__desc"><span data-l="pt">O endereço da bio do Instagram, com a cara da sua marca e no seu domínio. Cada clique vira dado sobre o que traz cliente.</span><span data-l="en" lang="en">The link in your Instagram bio, in your brand’s look and on your own domain. Every click becomes data on what brings customers.</span></p>
+          <ul class="ticks">
+              <li><span data-l="pt">Pedidos, reservas, WhatsApp e mapa num só link</span><span data-l="en" lang="en">Orders, bookings, WhatsApp and map in one link</span></li>
+              <li><span data-l="pt">Identidade da marca, sem cara de Linktree</span><span data-l="en" lang="en">Your brand identity, without the Linktree look</span></li>
+              <li><span data-l="pt">Cada clique medido no Pixel e na API de Conversões da Meta</span><span data-l="en" lang="en">Every click measured with Meta Pixel and Conversions API</span></li>
+              <li><span data-l="pt">Abre em uma tela, leve no celular</span><span data-l="en" lang="en">Opens in one screen, light on mobile</span></li>
+          </ul>
+          <a class="service__cta mono-link" href="#contato" data-servico="links"><span data-l="pt">Começar por aqui</span><span data-l="en" lang="en">Start here</span></a>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ 05 · PROCESSO ============ -->
+    <section class="section panel glass reveal-scroll" id="processo" aria-labelledby="processo-t">
+      <header class="section__head">
+        <p class="eyebrow"><span data-l="pt">Processo</span><span data-l="en" lang="en">Process</span></p>
+        <h2 class="section__title" id="processo-t"><span data-l="pt">Quatro decisões, quatro aprovações</span><span data-l="en" lang="en">Four decisions, four approvals</span></h2>
+        <p class="section__intro">
+          <span data-l="pt">Você aprova a lógica antes do visual. Em cada etapa, sabe o que está sendo feito, o que precisa aprovar e o que sai da página.</span>
+          <span data-l="en" lang="en">You approve the logic before the visuals. At every stage you know what is being done, what you need to approve and what leaves the page.</span>
+        </p>
+      </header>
+      <ol class="grid grid--4 steps">
+        <li class="step card">
+          <p class="step__n">01</p>
+          <p class="eyebrow"><span data-l="pt">Entender</span><span data-l="en" lang="en">Understand</span></p>
+          <h3 class="step__title"><span data-l="pt">Briefing</span><span data-l="en" lang="en">Briefing</span></h3>
+          <p class="step__desc"><span data-l="pt">Começamos pelo negócio, pelo público e pelo objetivo do site. O briefing fecha o problema certo antes de qualquer decisão visual.</span><span data-l="en" lang="en">We start with the business, the audience and the website’s goal. The briefing pins down the right problem before any visual decision.</span></p>
+          <dl class="spec spec--compact">
+            <div class="spec__row"><dt><span data-l="pt">Entrega</span><span data-l="en" lang="en">Deliverable</span></dt><dd><span data-l="pt">Direção do projeto</span><span data-l="en" lang="en">Project direction</span></dd></div>
+            <div class="spec__row"><dt><span data-l="pt">Prazo</span><span data-l="en" lang="en">Timeline</span></dt><dd><span class="tbd"><span data-l="pt">A preencher</span><span data-l="en" lang="en">To be filled</span></span></dd></div>
+          </dl>
+          <p class="step__out"><span class="step__out-k"><span data-l="pt">O que sai aqui</span><span data-l="en" lang="en">What leaves here</span></span><span data-l="pt">O achismo. Nenhuma decisão visual antes de o problema estar escrito.</span><span data-l="en" lang="en">Guesswork. No visual decision before the problem is written down.</span></p>
+        </li>
+        <li class="step card">
+          <p class="step__n">02</p>
+          <p class="eyebrow"><span data-l="pt">Organizar</span><span data-l="en" lang="en">Organize</span></p>
+          <h3 class="step__title"><span data-l="pt">Estratégia</span><span data-l="en" lang="en">Strategy</span></h3>
+          <p class="step__desc"><span data-l="pt">Transformamos o diagnóstico em estrutura, fluxo e texto. Você aprova a lógica da página antes de avançarmos para o visual.</span><span data-l="en" lang="en">We turn the diagnosis into structure, flow and copy. You approve the page’s logic before we move on to the visuals.</span></p>
+          <dl class="spec spec--compact">
+            <div class="spec__row"><dt><span data-l="pt">Entrega</span><span data-l="en" lang="en">Deliverable</span></dt><dd><span data-l="pt">Wireframe e texto</span><span data-l="en" lang="en">Wireframe and copy</span></dd></div>
+            <div class="spec__row"><dt><span data-l="pt">Prazo</span><span data-l="en" lang="en">Timeline</span></dt><dd><span class="tbd"><span data-l="pt">A preencher</span><span data-l="en" lang="en">To be filled</span></span></dd></div>
+          </dl>
+          <p class="step__out"><span class="step__out-k"><span data-l="pt">O que sai aqui</span><span data-l="en" lang="en">What leaves here</span></span><span data-l="pt">A seção que não responde a nenhuma pergunta do seu cliente.</span><span data-l="en" lang="en">Any section that answers none of your customer’s questions.</span></p>
+        </li>
+        <li class="step card">
+          <p class="step__n">03</p>
+          <p class="eyebrow"><span data-l="pt">Materializar</span><span data-l="en" lang="en">Shape</span></p>
+          <h3 class="step__title"><span data-l="pt">Design</span><span data-l="en" lang="en">Design</span></h3>
+          <p class="step__desc"><span data-l="pt">A estratégia ganha forma com tipografia, hierarquia, ritmo e interações. Cada detalhe visual tem uma função clara.</span><span data-l="en" lang="en">The strategy takes shape through type, hierarchy, rhythm and interaction. Every visual detail has a clear purpose.</span></p>
+          <dl class="spec spec--compact">
+            <div class="spec__row"><dt><span data-l="pt">Entrega</span><span data-l="en" lang="en">Deliverable</span></dt><dd><span data-l="pt">Layout final</span><span data-l="en" lang="en">Final layout</span></dd></div>
+            <div class="spec__row"><dt><span data-l="pt">Prazo</span><span data-l="en" lang="en">Timeline</span></dt><dd><span class="tbd"><span data-l="pt">A preencher</span><span data-l="en" lang="en">To be filled</span></span></dd></div>
+          </dl>
+          <p class="step__out"><span class="step__out-k"><span data-l="pt">O que sai aqui</span><span data-l="en" lang="en">What leaves here</span></span><span data-l="pt">O efeito que distrai e a cor sem motivo.</span><span data-l="en" lang="en">The effect that distracts and the color without a reason.</span></p>
+        </li>
+        <li class="step card">
+          <p class="step__n">04</p>
+          <p class="eyebrow"><span data-l="pt">Publicar</span><span data-l="en" lang="en">Publish</span></p>
+          <h3 class="step__title"><span data-l="pt">Entrega</span><span data-l="en" lang="en">Launch</span></h3>
+          <p class="step__desc"><span data-l="pt">Desenvolvemos, testamos e publicamos. Sua equipe recebe treinamento, documentação e suporte nos primeiros 45 dias.</span><span data-l="en" lang="en">We build, test and publish. Your team gets training, documentation and support for the first 45 days.</span></p>
+          <dl class="spec spec--compact">
+            <div class="spec__row"><dt><span data-l="pt">Entrega</span><span data-l="en" lang="en">Deliverable</span></dt><dd><span data-l="pt">Site publicado</span><span data-l="en" lang="en">Website live</span></dd></div>
+            <div class="spec__row"><dt><span data-l="pt">Prazo</span><span data-l="en" lang="en">Timeline</span></dt><dd><span class="tbd"><span data-l="pt">A preencher</span><span data-l="en" lang="en">To be filled</span></span></dd></div>
+          </dl>
+          <p class="step__out"><span class="step__out-k"><span data-l="pt">O que sai aqui</span><span data-l="en" lang="en">What leaves here</span></span><span data-l="pt">O peso que atrasa a página e o clique sem destino.</span><span data-l="en" lang="en">The weight that slows the page and the click that goes nowhere.</span></p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ============ 06 · SOBRE ============
+         Os dois fundadores como as duas metades do símbolo: clareza e função. -->
+    <section class="section panel glass reveal-scroll" id="sobre" aria-labelledby="sobre-t">
+      <header class="section__head">
+        <p class="eyebrow"><span data-l="pt">Sobre</span><span data-l="en" lang="en">About</span></p>
+        <h2 class="section__title" id="sobre-t"><span data-l="pt">Duas metades da mesma tese</span><span data-l="en" lang="en">Two halves of the same thesis</span></h2>
+        <p class="section__intro">
+          <span data-l="pt">O símbolo da GR é um círculo cortado ao meio. Uma metade cuida de que a página seja entendida; a outra, de que ela venda. O enfeite fere as duas ao mesmo tempo.</span>
+          <span data-l="en" lang="en">The GR symbol is a circle cut in half. One half makes sure the page is understood; the other, that it sells. Ornament hurts both at once.</span>
+        </p>
+      </header>
+      <div class="grid grid--2">
+        <article class="founder card">
+          <div class="founder__top">
+            <svg class="half" viewBox="22.5 22 84 84" aria-hidden="true"><defs><clipPath id="fh-top-t"><rect x="-60" y="-60" width="220" height="107"/></clipPath></defs>
+            <g transform="translate(25.30,24.00)"><g transform="scale(1.00125) translate(-16.0,-8.2)">
+              <g transform="rotate(-22 50 50)">
+                <g fill="currentColor" opacity=".14"><circle cx="50" cy="50" r="38"/></g>
+                <g fill="currentColor"><g clip-path="url(#fh-top-t)"><circle cx="50" cy="50" r="38" transform="translate(10,0)"/></g></g>
+              </g>
+            </g></g>
+          </svg>
+            <p class="founder__word"><span data-l="pt">Clareza</span><span data-l="en" lang="en">Clarity</span></p>
+          </div>
+          <blockquote class="founder__quote"><p><span data-l="pt">“Clareza não é estilo, é dever. Todo excesso já é um erro de leitura.”</span><span data-l="en" lang="en">“Clarity isn’t style, it’s duty. Every excess is already a reading error.”</span></p></blockquote>
+          <div class="founder__id">
+            <h3 class="founder__name">Eduardo G. Rodrigues</h3>
+            <p class="eyebrow"><span data-l="pt">Fundador e web designer</span><span data-l="en" lang="en">Founder and web designer</span> · São José do Rio Preto, SP</p>
+          </div>
+          <p class="founder__bio"><span data-l="pt">Começou como técnico de informática: aprendeu a diagnosticar, a resolver e a ter paciência com o detalhe. Hoje desenha sites e identidades visuais e fotografa, buscando em cada projeto o que Alexandre Wollner praticava: precisão.</span><span data-l="en" lang="en">He started out as a computer technician, learning to diagnose, to fix and to be patient with detail. Today he designs websites and visual identities and takes photographs, looking in every project for what Alexandre Wollner practiced: precision.</span></p>
+          <ul class="tags">
+            <li><span data-l="pt">Interface e experiência</span><span data-l="en" lang="en">UI &amp; UX</span></li>
+            <li><span data-l="pt">Identidade visual</span><span data-l="en" lang="en">Visual identity</span></li>
+            <li><span data-l="pt">Tipografia</span><span data-l="en" lang="en">Typography</span></li>
+            <li><span data-l="pt">Performance e SEO</span><span data-l="en" lang="en">Performance &amp; SEO</span></li>
+          </ul>
+        </article>
+        <article class="founder card">
+          <div class="founder__top">
+            <svg class="half" viewBox="22.5 22 84 84" aria-hidden="true"><defs><clipPath id="fh-bottom-b"><rect x="-60" y="53" width="220" height="160"/></clipPath></defs>
+            <g transform="translate(25.30,24.00)"><g transform="scale(1.00125) translate(-16.0,-8.2)">
+              <g transform="rotate(-22 50 50)">
+                <g fill="currentColor" opacity=".14"><circle cx="50" cy="50" r="38"/></g>
+                <g fill="currentColor"><g clip-path="url(#fh-bottom-b)"><circle cx="50" cy="50" r="38"/></g></g>
+              </g>
+            </g></g>
+          </svg>
+            <p class="founder__word"><span data-l="pt">Função</span><span data-l="en" lang="en">Function</span></p>
+          </div>
+          <blockquote class="founder__quote"><p><span data-l="pt">“Site bom não é o que chama mais atenção. É o que deixa menos gente pelo caminho.”</span><span data-l="en" lang="en">“A good website isn’t the one that draws the most attention. It’s the one that loses the fewest people along the way.”</span></p></blockquote>
+          <div class="founder__id">
+            <h3 class="founder__name">Miguel Serafim</h3>
+            <p class="eyebrow"><span data-l="pt">Fundador e gestor de tráfego</span><span data-l="en" lang="en">Founder and traffic manager</span> · Campinas, SP</p>
+          </div>
+          <p class="founder__bio"><span data-l="pt">O trabalho dele começa quando alguém entra no site. Observa o comportamento, encontra os pontos de abandono e transforma dados em decisões sobre a página, a oferta e o formulário, para entender não só quanto uma página converte, mas por quê.</span><span data-l="en" lang="en">His work begins when someone lands on the site. He watches behavior, finds the drop-off points and turns data into decisions about the page, the offer and the form, to understand not just how much a page converts, but why.</span></p>
+          <ul class="tags">
+            <li><span data-l="pt">Conversão</span><span data-l="en" lang="en">Conversion</span></li>
+            <li><span data-l="pt">Testes A/B</span><span data-l="en" lang="en">A/B testing</span></li>
+            <li><span data-l="pt">Rastreamento e métricas</span><span data-l="en" lang="en">Tracking &amp; metrics</span></li>
+            <li><span data-l="pt">Funil de vendas</span><span data-l="en" lang="en">Sales funnel</span></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ 07 · GR APPS ============ -->
+    <section class="section panel glass reveal-scroll" id="apps" aria-labelledby="apps-t">
+      <header class="section__head">
+        <p class="eyebrow">GR Apps</p>
+        <h2 class="section__title" id="apps-t"><span data-l="pt">Coisas que construímos por prazer</span><span data-l="en" lang="en">Things we build for the pleasure of it</span></h2>
+        <p class="section__intro">
+          <span data-l="pt">Treze ferramentas gratuitas, sem conta e sem servidor no meio. Se cuidamos assim do que é de graça, imagine do que é seu.</span>
+          <span data-l="en" lang="en">Thirteen free tools, no account and no server in between. If this is how we treat what’s free, imagine what we do with what’s yours.</span>
+        </p>
+      </header>
+      <div class="grid grid--3">
+        <a class="app card" href="https://grbrands.com.br/vinyl-player" target="_blank" rel="noopener noreferrer">
+          <span class="app__icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="24" cy="24" r="19"/><circle cx="24" cy="24" r="12" opacity=".5"/><circle cx="24" cy="24" r="4.5"/><circle cx="24" cy="24" r="1" fill="currentColor"/></svg></span>
+          <span class="app__name">Vinyl Player</span>
+          <span class="app__desc"><span data-l="pt">Uma vitrola digital para ouvir música como se ainda estivéssemos escolhendo discos.</span><span data-l="en" lang="en">A digital turntable for listening to music as if we were still choosing records.</span></span>
+          <span class="app__open eyebrow"><span data-l="pt">Abrir</span><span data-l="en" lang="en">Open</span> ↗</span>
+        </a>
+        <a class="app card" href="https://grbrands.com.br/tv" target="_blank" rel="noopener noreferrer">
+          <span class="app__icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="12" width="36" height="26" rx="7"/><rect x="11" y="16.5" width="23" height="17" rx="5"/><circle cx="38" cy="20" r="1.2" fill="currentColor"/><circle cx="38" cy="25" r="1.2" fill="currentColor"/><path d="m18 12-5-6M30 12l5-6"/></svg></span>
+          <span class="app__name">GR TV</span>
+          <span class="app__desc"><span data-l="pt">Uma televisão de tubo dos anos 90, com videocassete, para assistir aos vídeos da sua máquina.</span><span data-l="en" lang="en">A 1990s tube television, with a VCR, for watching the videos on your computer.</span></span>
+          <span class="app__open eyebrow"><span data-l="pt">Abrir</span><span data-l="en" lang="en">Open</span> ↗</span>
+        </a>
+        <a class="app card" href="https://grbrands.com.br/roupas" target="_blank" rel="noopener noreferrer">
+          <span class="app__icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" aria-hidden="true"><path d="M17 7h14l7 6v28H10V13z"/><path d="m17 7 7 13 7-13"/><path d="M24 20v21"/><path d="m22 20 2 4 2-4"/></svg></span>
+          <span class="app__name"><span data-l="pt">Vestir</span><span data-l="en" lang="en">Dress</span></span>
+          <span class="app__desc"><span data-l="pt">Escolha o paletó e descubra camisas e gravatas que funcionam, com a explicação de cada combinação.</span><span data-l="en" lang="en">Pick a jacket and find shirts and ties that work, with the reasoning behind each pairing.</span></span>
+          <span class="app__open eyebrow"><span data-l="pt">Abrir</span><span data-l="en" lang="en">Open</span> ↗</span>
+        </a>
+      </div>
+      <p class="section__more">
+        <a class="button-link glass" href="https://grbrands.com.br/apps/" target="_blank" rel="noopener noreferrer">
+          <span data-l="pt">Ver os 13 apps</span><span data-l="en" lang="en">See all 13 apps</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+        </a>
+      </p>
+    </section>
+
+    <!-- ============ 08 · CONTATO ============
+         Sem faixa de preço: o formulário começa pelo objetivo do site e
+         envia tudo pelo WhatsApp, sem servidor. -->
+    <section class="section panel glass reveal-scroll" id="contato" aria-labelledby="contato-t">
+      <div class="contact">
+        <header class="section__head contact__head">
+          <p class="eyebrow"><span data-l="pt">Contato</span><span data-l="en" lang="en">Contact</span></p>
+          <h2 class="section__title" id="contato-t"><span data-l="pt">Comece pelo objetivo</span><span data-l="en" lang="en">Start with the goal</span></h2>
+          <p class="section__intro">
+            <span data-l="pt">Conte o que o site precisa fazer pelo seu negócio. A gente responde em até 24 horas, com as primeiras perguntas certas.</span>
+            <span data-l="en" lang="en">Tell us what the website needs to do for your business. We reply within 24 hours, with the right first questions.</span>
+          </p>
+          <dl class="contact__facts">
+            <div><dt data-i18n="colBaseK">Base</dt><dd>São José do Rio Preto · Campinas</dd></div>
+            <div><dt><span data-l="pt">Atendimento</span><span data-l="en" lang="en">Working</span></dt><dd><span data-l="pt">100% remoto</span><span data-l="en" lang="en">Fully remote</span></dd></div>
+            <div><dt>E-mail</dt><dd><a href="mailto:contato@grbrands.com.br">contato@grbrands.com.br</a></dd></div>
+          </dl>
+        </header>
+
+        <form class="form" id="projectForm" novalidate>
+          <fieldset class="form__group">
+            <legend class="form__label"><span data-l="pt">Qual o objetivo do site?</span><span data-l="en" lang="en">What is the website for?</span></legend>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="objetivo" value="vender" required /><span><span data-l="pt">Vender mais</span><span data-l="en" lang="en">Sell more</span></span></label>
+              <label class="chip"><input type="radio" name="objetivo" value="contatos" /><span><span data-l="pt">Gerar contatos</span><span data-l="en" lang="en">Get leads</span></span></label>
+              <label class="chip"><input type="radio" name="objetivo" value="apresentar" /><span><span data-l="pt">Apresentar a empresa</span><span data-l="en" lang="en">Present the company</span></span></label>
+              <label class="chip"><input type="radio" name="objetivo" value="lancar" /><span><span data-l="pt">Lançar algo novo</span><span data-l="en" lang="en">Launch something new</span></span></label>
+            </div>
+          </fieldset>
+
+          <label class="form__group">
+            <span class="form__label"><span data-l="pt">Que tipo de projeto?</span><span data-l="en" lang="en">What kind of project?</span></span>
+            <select class="field" name="servico" id="f-servico">
+              <option value="" data-i18n="optUnsure">Ainda não sei</option>
+              <option value="landing" data-i18n="svcLanding">Landing page</option>
+              <option value="institucional" data-i18n="svcSite">Site institucional</option>
+              <option value="loja" data-i18n="svcStore">Loja virtual</option>
+              <option value="links" data-i18n="svcLinks">Página de links</option>
+            </select>
+          </label>
+
+          <div class="form__row">
+            <label class="form__group">
+              <span class="form__label" data-i18n="fName">Nome</span>
+              <input class="field" type="text" name="nome" autocomplete="name" required />
+            </label>
+            <label class="form__group">
+              <span class="form__label" data-i18n="fCompany">Empresa</span>
+              <input class="field" type="text" name="empresa" autocomplete="organization" />
+            </label>
+          </div>
+
+          <label class="form__group">
+            <span class="form__label" data-i18n="fNote">O que mais a gente precisa saber?</span>
+            <textarea class="field" name="mensagem" rows="4"></textarea>
+          </label>
+
+          <p class="form__error" id="formError" role="alert" hidden></p>
+
+          <div class="form__actions">
+            <button class="button-link button-link--ink" type="submit">
+              <span data-i18n="fSend">Enviar pelo WhatsApp</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+            </button>
+            <a class="form__alt" id="formMail" href="mailto:contato@grbrands.com.br" data-i18n="fMail">ou por e-mail</a>
+          </div>
+        </form>
+      </div>
+    </section>
+
+  </main>
 
   <!-- ============ CÓLOFON ============
        A ficha técnica no pé da página. A régua do fim é cortada pelo
@@ -150,8 +587,8 @@
           </g>
         </g></g>
       </svg>
-        <p class="colophon__name">GR Brands.</p>
-        <p class="colophon__tag" data-i18n="colTag">Estúdio de design e código.</p>
+        <p class="colophon__name">GR Brands<span class="dot">.</span></p>
+        <p class="colophon__tag"><span data-l="pt">Nada é enfeite<span class="dot">.</span></span><span data-l="en" lang="en">Nothing is ornament<span class="dot">.</span></span></p>
       </div>
       <dl class="colophon__specs">
         <div class="colophon__row"><dt data-i18n="colBaseK">Base</dt><dd>São José do Rio Preto · Campinas</dd></div>
@@ -180,8 +617,10 @@
       <p class="colophon__copy">© 2026 GR Brands</p>
       <ul class="colophon__links">
         <li><a href="blog/" data-i18n="writing">Escritos</a></li>
+        <li><a href="mailto:contato@grbrands.com.br?subject=Vagas" data-i18n="jobs">Vagas</a></li>
+        <li><a href="mailto:contato@grbrands.com.br?subject=Newsletter" data-i18n="newsletter">Newsletter</a></li>
         <li><a href="https://grbrands.com.br/apps/" target="_blank" rel="noopener noreferrer">GR Apps</a></li>
-        <li><a href="https://www.instagram.com/grbrands.studio/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        <li><a href="https://www.instagram.com/grbrands.studio/" target="_blank" rel="noopener noreferrer">@grbrands.studio</a></li>
         <li><a href="https://grbrands.com.br/" target="_blank" rel="noopener noreferrer">grbrands.com.br</a></li>
       </ul>
     </div>
@@ -189,6 +628,6 @@
 
 </div>
 
-<script src="app.js?v=20261123-4" defer></script>
+<script src="app.js?v=20261123-5" defer></script>
 </body>
 </html>

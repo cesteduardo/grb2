@@ -40,6 +40,8 @@
       colMarkK: 'Símbolo',
       colMark: 'Um círculo cortado ao meio, girado −22°',
       colYearK: 'Ano',
+      colTag: 'Estúdio de design e código.',
+      colContactK: 'Contato',
       // Escritos
       skip: 'Pular para o texto',
       blogEyebrow: 'GR Brands · Escritos',
@@ -82,6 +84,8 @@
       colMarkK: 'Symbol',
       colMark: 'A circle cut in half, turned −22°',
       colYearK: 'Year',
+      colTag: 'A design and code studio.',
+      colContactK: 'Contact',
       skip: 'Skip to the text',
       blogEyebrow: 'GR Brands · Writing',
       blogIntro: 'Notes on design, writing and craft.',

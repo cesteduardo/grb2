@@ -1,7 +1,7 @@
 /* ==========================================================================
    GR Brands — página inicial e Escritos (blog)
-   Uma página única de proporções contidas, com Liquid Glass e cantos
-   arredondados. Sem efeitos de hover, de propósito: a interface muda por
+   Seções em retângulos arredondados de Liquid Glass, com o logo sempre
+   chapado, fora do vidro. Sem efeitos de hover, de propósito: a interface muda por
    clique, toque e foco de teclado, nunca pela passagem do mouse.
 
    Identidade: o símbolo da GR é um círculo cortado ao meio e girado −22°.
@@ -51,7 +51,7 @@
 
   --radius-pill: 999px;
   --radius-card: 28px;
-  --radius-tile: 30px;
+  --radius-panel: 32px;
   --ease: cubic-bezier(.4, 0, .2, 1);
 
   color-scheme: light;
@@ -226,22 +226,59 @@ svg { display: block; }
     radial-gradient(36% 22% at 52% 80%, var(--ambient-c), transparent 70%);
 }
 
-/* ---------- Controles (tema + idioma) ---------- */
-.controls {
-  position: fixed;
-  top: 16px;
-  left: 16px;
-  z-index: 20;
+
+/* ==========================================================================
+   ESTRUTURA
+   Uma coluna central de blocos. Cada seção é um retângulo arredondado
+   próprio, separado do vizinho por 12px de fundo.
+   ========================================================================== */
+.shell {
+  flex: 1 0 auto;
+  width: 100%;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 16px 16px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
+  gap: 12px;
 }
+.shell--read { max-width: 880px; }
+
+.panel { border-radius: var(--radius-panel); }
+
+/* ---------- Barra do topo ---------- */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  min-height: 68px;
+  padding: 12px 0;
+}
+.topbar--end { position: relative; justify-content: flex-end; }
+.topbar__tools { display: flex; align-items: center; gap: 8px; }
+
+/* O logo é sempre chapado: só o símbolo, sem vidro. */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding-right: 6px;
+  border-radius: 12px;
+  text-decoration: none;
+}
+.brand svg { width: 24px; height: 24px; }
+
+/* ---------- Controles (tema + idioma) ---------- */
 .ctrl {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  height: 36px;
+  height: 38px;
   padding: 0 16px 0 13px;
 }
 /* O ícone do tema é o próprio corte do símbolo: um círculo com uma metade
@@ -259,7 +296,7 @@ html[data-theme="dark"] .ctrl__icon { transform: rotate(180deg); }
 .seg {
   display: inline-grid;
   grid-template-columns: 1fr 1fr;
-  height: 36px;
+  height: 38px;
   padding: 3px;
 }
 .seg__btn {
@@ -285,106 +322,105 @@ html[data-theme="dark"] .ctrl__icon { transform: rotate(180deg); }
 html[data-theme="dark"] .seg > .seg__thumb { box-shadow: inset 0 1px 0 rgba(255, 255, 255, .16), 0 1px 3px rgba(0, 0, 0, .4); }
 html[data-lang="en"] .seg > .seg__thumb { transform: translateX(100%); }
 
-/* ---------- Página inicial ---------- */
-.page {
-  flex: 1 0 auto;
+/* ==========================================================================
+   PÁGINA INICIAL
+   ========================================================================== */
+.hero {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 88px 16px 56px;
+  min-height: clamp(480px, 62svh, 640px);
+  padding: 72px 32px 76px;
+  text-align: center;
 }
+.hero__mark { display: block; border-radius: 50%; }
+.hero__mark svg { width: 64px; height: 64px; }
 
-/* A pastilha: a mesma placa de vidro em que o símbolo pousa na abertura. */
-.tile-wrap { display: flex; justify-content: center; }
-.tile {
-  display: grid;
-  place-items: center;
-  width: 108px;
-  height: 108px;
-  border-radius: var(--radius-tile);
-  text-decoration: none;
-}
-.tile svg { width: 54px; height: 54px; }
-
-.lead {
-  width: 100%;
-  max-width: 700px;
-  margin: 0 auto;
-  padding-top: 64px;
-}
+.hero .heading { margin-top: 52px; }
+.shell__main { display: grid; gap: 12px; }
 
 .apps {
-  margin-top: 60px;
+  margin-top: 52px;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
 }
 .button-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
-  height: 46px;
+  height: 48px;
   padding: 0 22px 0 18px;
   text-decoration: none;
   white-space: nowrap;
 }
 
-.foot {
-  margin-top: 40px;
+/* Navegação: um bloco só, com os links distribuídos. */
+.navpanel {
   display: flex;
   justify-content: center;
-  width: 100%;
-}
-.foot__nav {
-  display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 4px;
-  padding: 5px;
+  padding: 11px;
 }
-.foot__nav .mono-link {
+.navpanel .mono-link {
   display: inline-flex;
   align-items: center;
-  height: 38px;
-  padding: 0 18px;
-  border-radius: var(--radius-pill);
+  justify-content: center;
+  height: 48px;
+  padding: 0 22px;
+  border-radius: 22px;
 }
 
 /* ==========================================================================
    CÓLOFON
    A ficha técnica no pé da página, à maneira dos impressores: quem fez, de
-   onde, com que letras. A régua acima é cortada pelo símbolo e a metade da
-   direita sobe, como a metade de cima do círculo da marca.
+   onde, com que letras. A régua do fim é cortada pelo símbolo e a metade
+   da direita sobe, como a metade de cima do círculo da marca.
    ========================================================================== */
 .colophon {
-  flex: none;
-  width: 100%;
-  padding: 0 24px 22px;
+  padding: 36px 40px 26px;
   color: var(--secondary);
 }
-.cut {
+.colophon__top {
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  gap: 14px;
-  height: 16px;
-  margin-bottom: 18px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
+  gap: 40px;
+  align-items: start;
 }
-.cut__a, .cut__b { height: 1px; background: var(--hairline); }
-.cut__b { transform: translateY(-3px); }
-.cut svg { width: 16px; height: 16px; color: var(--tertiary); }
-
-.colophon__grid {
-  display: grid;
-  grid-template-columns: 1.1fr 1.4fr 1.3fr 1.6fr auto;
-  gap: 8px 28px;
+.colophon__brand { display: grid; gap: 14px; justify-items: start; }
+.colophon__brand svg { width: 28px; height: 28px; color: var(--primary); }
+.colophon__name {
+  margin: 4px 0 0;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 30px;
+  line-height: 1;
+  color: var(--primary);
+}
+.colophon__tag {
   margin: 0;
+  max-width: 26ch;
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.4;
 }
-.colophon__item { margin: 0; }
+
+.colophon__specs { margin: 0; }
+.colophon__row {
+  display: grid;
+  grid-template-columns: 128px minmax(0, 1fr);
+  gap: 16px;
+  align-items: baseline;
+  padding: 13px 0;
+  border-top: 1px solid var(--hairline);
+}
+.colophon__row:first-child { border-top: 0; padding-top: 2px; }
 .colophon dt {
-  margin-bottom: 6px;
   font-size: 10.5px;
   letter-spacing: .16em;
   text-transform: uppercase;
@@ -393,12 +429,44 @@ html[data-lang="en"] .seg > .seg__thumb { transform: translateX(100%); }
 .colophon dd {
   margin: 0;
   font-family: var(--serif);
-  font-size: 15px;
-  line-height: 1.3;
+  font-size: 16px;
+  line-height: 1.35;
   color: var(--primary);
 }
-.colophon__brand dd { font-style: italic; }
-.colophon__year { text-align: right; }
+.colophon dd a { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .18em; text-decoration-color: var(--tertiary); }
+
+.cut {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 14px;
+  height: 16px;
+  margin: 30px 0 20px;
+}
+.cut__a, .cut__b { height: 1px; background: var(--hairline); }
+.cut__b { transform: translateY(-3px); }
+.cut svg { width: 16px; height: 16px; color: var(--tertiary); }
+
+.colophon__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px 24px;
+  flex-wrap: wrap;
+}
+.colophon__copy { margin: 0; font-size: 12px; letter-spacing: .04em; color: var(--tertiary); }
+.colophon__links { display: flex; flex-wrap: wrap; gap: 4px 22px; }
+.colophon__links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  font-size: 11.5px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--secondary);
+  border-radius: 6px;
+}
 
 /* ---------- Entrada (depois da abertura de vidro) ---------- */
 html.js .reveal {
@@ -416,43 +484,7 @@ html.js .r5 { transition-delay: .48s; }
 /* ==========================================================================
    ESCRITOS (blog)
    ========================================================================== */
-.bar {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  padding: 14px 16px;
-}
-.bar__home {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  height: 40px;
-  padding: 0 16px 0 6px;
-  text-decoration: none;
-}
-.bar__mark {
-  display: grid;
-  place-items: center;
-  width: 28px;
-  height: 28px;
-  border-radius: 10px;
-  background: var(--glass-fill-strong);
-}
-.bar__mark svg { width: 15px; height: 15px; }
-.bar__tools { display: flex; align-items: center; gap: 8px; }
-
-.blog {
-  flex: 1 0 auto;
-  width: 100%;
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 56px 16px 96px;
-}
-.blog__head { text-align: center; }
+.blog__head { padding: 64px 32px 60px; text-align: center; }
 .display {
   margin: 18px 0 0;
   font-family: var(--serif);
@@ -472,13 +504,13 @@ html.js .r5 { transition-delay: .48s; }
   text-wrap: balance;
 }
 
-.posts { margin-top: 64px; display: grid; gap: 14px; }
+.posts { display: grid; gap: 12px; }
 .post-card {
   display: grid;
   grid-template-columns: 132px 1fr;
   gap: 6px 28px;
-  padding: 26px 30px 28px;
-  border-radius: var(--radius-card);
+  padding: 28px 32px 30px;
+  border-radius: var(--radius-panel);
   text-decoration: none;
 }
 .post-card__date { grid-row: 1 / span 3; padding-top: 9px; }
@@ -501,8 +533,8 @@ html.js .r5 { transition-delay: .48s; }
 .post-card__meta { margin-top: 10px; }
 
 .state {
-  margin: 64px auto 0;
-  max-width: 34ch;
+  margin: 0;
+  padding: 48px 32px;
   font-family: var(--serif);
   font-style: italic;
   font-size: 21px;
@@ -510,10 +542,12 @@ html.js .r5 { transition-delay: .48s; }
   text-align: center;
   color: var(--secondary);
 }
+.state[hidden] { display: none; }
 
 /* ---------- Texto ---------- */
-.post { width: 100%; max-width: 680px; margin: 0 auto; }
-.post__head { text-align: center; padding-bottom: 48px; }
+.post { display: grid; gap: 12px; }
+.post[hidden] { display: none; }
+.post__head { padding: 64px 40px 58px; text-align: center; }
 .post__title {
   margin: 22px auto 0;
   max-width: 18ch;
@@ -534,8 +568,11 @@ html.js .r5 { transition-delay: .48s; }
   color: var(--secondary);
   text-wrap: balance;
 }
+.post__body { padding: 64px 40px 40px; }
 
 .prose {
+  max-width: 640px;
+  margin: 0 auto;
   font-family: var(--serif);
   font-size: 21px;
   line-height: 1.62;
@@ -606,13 +643,7 @@ html.js .r5 { transition-delay: .48s; }
 .prose ol { list-style: decimal; }
 .prose ol > li::marker { font-variant-numeric: lining-nums; color: var(--secondary); }
 .prose li + li { margin-top: .4em; }
-.prose img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 22px;
-}
-.prose p:has(> img:only-child) { margin-top: 1.8em; margin-bottom: 1.8em; }
+.prose img { display: block; width: 100%; height: auto; border-radius: 22px; }
 .prose figure { margin: 2em 0; }
 .prose figcaption {
   margin-top: 12px;
@@ -651,17 +682,19 @@ html.js .r5 { transition-delay: .48s; }
   -webkit-mask: url('img/grb-simbolo.svg') center / 18px 18px no-repeat;
   mask: url('img/grb-simbolo.svg') center / 18px 18px no-repeat;
 }
+.post__body .ornament { margin: 56px auto 0; }
 .prose table { width: 100%; border-collapse: collapse; font-size: .85em; }
 .prose th, .prose td { padding: .5em .6em; border-bottom: 1px solid var(--hairline); text-align: left; }
 
-.post__end { margin-top: 8px; display: grid; gap: 14px; }
-.post__pager { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.post__end { display: grid; gap: 12px; }
+.post__pager { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.post__pager[hidden] { display: none; }
 .pager-card {
   display: grid;
   align-content: start;
   gap: 10px;
-  padding: 20px 24px 22px;
-  border-radius: 24px;
+  padding: 22px 28px 24px;
+  border-radius: var(--radius-card);
   text-decoration: none;
 }
 .pager-card--next { grid-column: 2; text-align: right; }
@@ -671,63 +704,61 @@ html.js .r5 { transition-delay: .48s; }
   font-size: 21px;
   line-height: 1.2;
 }
-.post__back { justify-self: center; margin-top: 18px; }
+.post__back { justify-self: center; margin: 8px 0 4px; }
 
-/* ---------- Telas menores ---------- */
+/* ==========================================================================
+   TELAS MENORES
+   ========================================================================== */
 @media (max-width: 799px) {
-  .controls {
-    position: absolute;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    left: 16px;
-    right: 16px;
-  }
-  .page { justify-content: flex-start; padding: 104px 16px 56px; }
-  .tile { width: 120px; height: 120px; border-radius: 34px; }
-  .tile svg { width: 60px; height: 60px; }
-  .lead { padding-top: 52px; }
+  .shell { padding: 0 12px 12px; gap: 10px; }
+  .topbar { min-height: 64px; }
+  :root { --radius-panel: 28px; }
+
+  .hero { min-height: 0; padding: 56px 20px 28px; }
+  .hero__mark svg { width: 72px; height: 72px; }
+  .hero .heading { margin-top: 44px; }
+  .shell__main { gap: 10px; }
   .heading { font-size: 30px; max-width: 19ch; }
-  .apps { flex-direction: column; gap: 14px; margin-top: 48px; }
-  .apps li { width: 100%; max-width: 300px; }
-  .button-link { width: 100%; height: 52px; }
+  .apps { flex-direction: column; gap: 10px; margin-top: 44px; width: 100%; }
+  .apps li { width: 100%; }
+  .button-link { width: 100%; height: 54px; }
 
-  .foot { margin-top: 40px; }
-  .foot__nav {
-    flex-direction: column;
-    align-items: stretch;
-    width: 100%;
-    max-width: 300px;
-    padding: 6px;
-    gap: 2px;
-    border-radius: var(--radius-card);
-  }
-  .foot__nav .mono-link { justify-content: center; height: 50px; border-radius: 22px; }
+  .navpanel { flex-direction: column; align-items: stretch; padding: 8px; gap: 0; }
+  .navpanel .mono-link { height: 54px; }
+  .navpanel .mono-link + .mono-link { box-shadow: 0 -1px 0 var(--hairline); border-radius: 0; }
+  .navpanel .mono-link:first-child { border-radius: 22px 22px 0 0; }
+  .navpanel .mono-link:last-child { border-radius: 0 0 22px 22px; }
 
-  .colophon { padding: 0 20px 28px; }
-  .colophon__grid { grid-template-columns: 1fr 1fr; gap: 20px; }
-  .colophon__mark { grid-column: 1 / -1; }
-  .colophon__year { text-align: left; }
+  .colophon { padding: 28px 22px 18px; }
+  .colophon__top { grid-template-columns: 1fr; gap: 24px; }
+  .colophon__name { font-size: 28px; }
+  .colophon__row { grid-template-columns: 96px minmax(0, 1fr); gap: 12px; padding: 12px 0; }
+  .colophon__row:first-child { border-top: 1px solid var(--hairline); padding-top: 12px; }
+  .cut { margin: 18px 0 14px; }
+  .colophon__bottom { flex-direction: column-reverse; align-items: flex-start; gap: 10px; }
+  .colophon__links { display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px; width: 100%; }
 
-  .bar__label { display: none; }
-  .bar__home { width: 40px; padding: 0; justify-content: center; }
+  .brand__label { display: none; }
+  .blog__head { padding: 48px 20px 44px; }
   .display { font-size: 56px; }
-  .blog { padding-top: 40px; }
   .blog__intro { font-size: 19px; }
-  .posts { margin-top: 44px; }
-  .post-card { grid-template-columns: 1fr; padding: 22px 22px 24px; border-radius: 24px; }
+  .post-card { grid-template-columns: 1fr; padding: 22px 22px 24px; }
   .post-card__date { grid-row: auto; padding-top: 0; margin-bottom: 6px; }
   .post-card__title { font-size: 26px; }
+  .post__head { padding: 44px 20px 40px; }
   .post__title { font-size: 40px; }
   .post__dek { font-size: 19px; }
+  .post__body { padding: 36px 20px 28px; }
   .prose { font-size: 19px; line-height: 1.6; }
   .post__pager { grid-template-columns: 1fr; }
   .pager-card--next { grid-column: auto; text-align: left; }
+  .post__back { width: 100%; height: 54px; }
 }
 
 @media (max-width: 359px) {
   .heading { font-size: 28px; }
   .mono-link, .button-link, .ctrl, .seg__btn { letter-spacing: .1em; }
+  .ctrl { padding: 0 12px 0 11px; }
 }
 
 /* ---------- Movimento reduzido ---------- */

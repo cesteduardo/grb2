@@ -12,8 +12,8 @@
    * ---------------------------------------------------------------- */
   var DICT = {
     pt: {
-      title_home: 'GR Brands — Nada é enfeite.',
-      desc_home: 'Sites e landing pages em que cada elemento trabalha: para ser entendido e para vender.',
+      title_home: 'GR Brands — Sites, identidades visuais e apps',
+      desc_home: 'Estamos construindo jeitos melhores de usar a internet com o Estúdio e os Apps da GR Brands.',
       title_blog: 'Escritos — GR Brands',
       desc_blog: 'Notas sobre design, escrita e ofício.',
       theme: 'Tema',
@@ -42,25 +42,6 @@
       colYearK: 'Ano',
       colTag: 'Estúdio de design e código.',
       colContactK: 'Contato',
-      sectionsAria: 'Seções',
-      optUnsure: 'Ainda não sei',
-      svcLanding: 'Landing page',
-      svcSite: 'Site institucional',
-      svcStore: 'Loja virtual',
-      svcLinks: 'Página de links',
-      fName: 'Nome',
-      fCompany: 'Empresa',
-      fNote: 'O que mais a gente precisa saber?',
-      fSend: 'Enviar pelo WhatsApp',
-      fMail: 'ou por e-mail',
-      fErrGoal: 'Escolha o objetivo do site.',
-      fErrName: 'Diga o seu nome.',
-      mHello: 'Olá! Vim pelo site da GR Brands.',
-      mGoal: 'Objetivo',
-      mProject: 'Projeto',
-      mName: 'Nome',
-      mCompany: 'Empresa',
-      mSubject: 'Novo projeto',
       // Escritos
       skip: 'Pular para o texto',
       blogEyebrow: 'GR Brands · Escritos',
@@ -75,8 +56,8 @@
       next: 'Próximo'
     },
     en: {
-      title_home: 'GR Brands — Nothing is ornament.',
-      desc_home: 'Websites and landing pages where every element does a job: to be understood, and to sell.',
+      title_home: 'GR Brands — Websites, visual identities and apps',
+      desc_home: 'We’re building better ways to use the internet with the GR Brands Studio and Apps.',
       title_blog: 'Writing — GR Brands',
       desc_blog: 'Notes on design, writing and craft.',
       theme: 'Theme',
@@ -105,25 +86,6 @@
       colYearK: 'Year',
       colTag: 'A design and code studio.',
       colContactK: 'Contact',
-      sectionsAria: 'Sections',
-      optUnsure: 'Not sure yet',
-      svcLanding: 'Landing page',
-      svcSite: 'Company website',
-      svcStore: 'Online store',
-      svcLinks: 'Link page',
-      fName: 'Name',
-      fCompany: 'Company',
-      fNote: 'What else should we know?',
-      fSend: 'Send via WhatsApp',
-      fMail: 'or by e-mail',
-      fErrGoal: 'Choose what the website is for.',
-      fErrName: 'Tell us your name.',
-      mHello: 'Hi! I found you through the GR Brands website.',
-      mGoal: 'Goal',
-      mProject: 'Project',
-      mName: 'Name',
-      mCompany: 'Company',
-      mSubject: 'New project',
       skip: 'Skip to the text',
       blogEyebrow: 'GR Brands · Writing',
       blogIntro: 'Notes on design, writing and craft.',
@@ -218,96 +180,6 @@
 
   window.GRB = { t: t, lang: currentLang, DICT: DICT };
   applyLang(currentLang());
-
-  /* ---------------------------------------------------------------- *
-   * Entrada por rolagem (seções abaixo da dobra)
-   * ---------------------------------------------------------------- */
-  var lazyEls = document.querySelectorAll('.reveal-scroll');
-  if (lazyEls.length) {
-    if ('IntersectionObserver' in window) {
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) {
-          if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
-        });
-      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.04 });
-      lazyEls.forEach(function (el) { io.observe(el); });
-      // Âncoras (#trabalhos etc.) aparecem na hora, sem esperar a rolagem.
-      var showHash = function () {
-        var t = location.hash && document.getElementById(location.hash.slice(1));
-        if (t && t.classList.contains('reveal-scroll')) t.classList.add('is-in');
-      };
-      window.addEventListener('hashchange', showHash);
-      showHash();
-    } else {
-      lazyEls.forEach(function (el) { el.classList.add('is-in'); });
-    }
-  }
-
-  /* ---------------------------------------------------------------- *
-   * Formulário: monta a mensagem e abre o WhatsApp (sem servidor)
-   * ---------------------------------------------------------------- */
-  var form = document.getElementById('projectForm');
-  if (form) {
-    var WA = '5517992686970';
-    var MAIL = 'contato@grbrands.com.br';
-    var errEl = document.getElementById('formError');
-    var mailEl = document.getElementById('formMail');
-    var svcSel = document.getElementById('f-servico');
-
-    // "Começar por aqui" em cada serviço já escolhe o tipo de projeto.
-    document.querySelectorAll('[data-servico]').forEach(function (a) {
-      a.addEventListener('click', function () { if (svcSel) svcSel.value = a.getAttribute('data-servico'); });
-    });
-
-    var labelOf = function (input) {
-      if (!input) return '';
-      var l = input.closest('label');
-      var span = l && l.querySelector('[data-l="' + currentLang() + '"]');
-      return (span || l || input).textContent.trim();
-    };
-    var compose = function () {
-      var goal = form.querySelector('input[name="objetivo"]:checked');
-      var lines = [t('mHello'), ''];
-      if (goal) lines.push(t('mGoal') + ': ' + labelOf(goal));
-      if (svcSel && svcSel.value) lines.push(t('mProject') + ': ' + svcSel.options[svcSel.selectedIndex].textContent.trim());
-      var name = form.nome.value.trim(), company = form.empresa.value.trim(), msg = form.mensagem.value.trim();
-      if (name) lines.push(t('mName') + ': ' + name);
-      if (company) lines.push(t('mCompany') + ': ' + company);
-      if (msg) lines.push('', msg);
-      return lines.join('\n');
-    };
-    var syncMail = function () {
-      if (mailEl) mailEl.href = 'mailto:' + MAIL + '?subject=' + encodeURIComponent(t('mSubject')) + '&body=' + encodeURIComponent(compose());
-    };
-    form.addEventListener('input', syncMail);
-    form.addEventListener('change', syncMail);
-    window.addEventListener('grb:lang', syncMail);
-    syncMail();
-
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var problem = '';
-      var first = null;
-      if (!form.querySelector('input[name="objetivo"]:checked')) { problem = t('fErrGoal'); first = form.querySelector('input[name="objetivo"]'); }
-      else if (!form.nome.value.trim()) { problem = t('fErrName'); first = form.nome; }
-      if (problem) {
-        errEl.textContent = problem;
-        errEl.hidden = false;
-        if (first) first.focus();
-        return;
-      }
-      errEl.hidden = true;
-      var url = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(compose());
-      // Um link temporário abre em nova aba sem tirar o visitante da página.
-      var a = document.createElement('a');
-      a.href = url;
-      a.target = '_blank';
-      a.rel = 'noopener noreferrer';
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-    });
-  }
 
   /* ---------------------------------------------------------------- *
    * Entrada: espera a abertura de vidro sair
